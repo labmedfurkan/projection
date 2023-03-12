@@ -1,0 +1,24 @@
+def btn(txt, x, y, width, height, inactive_color, active_color, action=None,size=" "):
+cursor = pygame.mouse.get_pos()
+click = pygame.mouse.get_pressed()
+# print(click)
+if x + width > cursor[0] > x and y + height > cursor[1] > y:
+pygame.draw.rect(game_layout_display, active_color, (x, y, width, height))
+if click[0] == 1 and action != None:
+if action == "quit":
+pygame.quit()
+quit()
+
+if action == "controls":
+game_ctrls()
+
+if action == "play":
+gameLoop()
+
+if action == "main":
+game_intro()
+
+else:
+pygame.draw.rect(game_layout_display, inactive_color, (x, y, width, height))
+
+txt_btn(txt, black, x, y, width, height)
